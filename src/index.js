@@ -7,7 +7,6 @@ const emailValidator = require("email-validator");
 console.log("Hi, welcome to Node ReadMeGenerator...");
 
 const ReadMeGenerator = (answersArray) =>
-
   `
 <a href="https://img.shields.io/badge/License-${answersArray.license}-brightgreen"><img src="https://img.shields.io/badge/License-${answersArray.license}-brightgreen"></a>
 # ${answersArray.title} 
@@ -114,7 +113,3 @@ inquirer.prompt(questions).then((response) => {
     err ? console.error(err) : console.log("Success!")
   );
 });
-
-
-https://img.shields.io/badge/License-${data.license[0]}-brightgreen
-https://img.shields.io/badge/License-${data.license[0]}-brightgreen
