@@ -1,5 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
+const emailValidator = require("email-validator")
 
 // This is a Welcome message
 
@@ -102,4 +103,10 @@ const questions =[
         name:"email",
         message:"Please enter your email address name:",
     },
-]
+];
+
+inquirer.prompt(questions).then((response)=>{
+    fs.writeFile("./output/readMe.md", ReadMeGenerator(response),(err) =>
+        err ? console.err(err) : console.log("Success!")
+    );
+})
