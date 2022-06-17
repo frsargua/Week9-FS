@@ -7,8 +7,10 @@ const emailValidator = require("email-validator");
 console.log("Hi, welcome to Node ReadMeGenerator...");
 
 const ReadMeGenerator = (answersArray) =>
+
   `
-# ${answersArray.title} ![License](https://img.shields.io/badge/${answersArray.license}-License-green)
+<a href="https://img.shields.io/badge/License-${answersArray.license}-brightgreen"><img src="https://img.shields.io/badge/License-${answersArray.license}-brightgreen"></a>
+# ${answersArray.title} 
 
 # Table of Contents
 
@@ -81,7 +83,7 @@ const questions = [
     type: "list",
     name: "license",
     message: "Choose a project license:",
-    choices: ["MIT", "apache-2.0", "afl-3.0"],
+    choices: ["MIT", "apache 2.0", "afl 3.0"],
   },
   {
     type: "input",
@@ -108,7 +110,11 @@ const questions = [
 
 inquirer.prompt(questions).then((response) => {
   console.log(response);
-  fs.writeFile("./output/readMe.md", ReadMeGenerator(response), (err) =>
+  fs.writeFile("./src/output/readMe.md", ReadMeGenerator(response), (err) =>
     err ? console.error(err) : console.log("Success!")
   );
 });
+
+
+https://img.shields.io/badge/License-${data.license[0]}-brightgreen
+https://img.shields.io/badge/License-${data.license[0]}-brightgreen
