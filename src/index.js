@@ -51,7 +51,9 @@ ${answersArray.testInstructions}
 ## Questions:
 
 Contact me through:
-GitHub: https://github.com/${answersArray.userName}
+
+GitHub: https://github.com/${answersArray.userName} 
+
 Email: ${answersArray.email}
     `;
 const questions = [
