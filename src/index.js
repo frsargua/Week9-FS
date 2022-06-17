@@ -6,7 +6,7 @@ const emailValidator = require("email-validator");
 
 console.log("Hi, welcome to Node ReadMeGenerator...");
 
-const ReadMeGenerator = (answersArray) => {
+const ReadMeGenerator = (answersArray) =>
   `
 # ${answersArray.title} ![License](https://img.shields.io/badge/${answersArray.license}-License-green)
 
@@ -46,7 +46,7 @@ ${answersArray.contributing}
 
 ## Tests
 
-${answersArray.Tests}
+${answersArray.testInstructions}
 
 ## Questions:
 
@@ -54,8 +54,6 @@ Contact me through:
 GitHub: https://github.com/${answersArray.userName}
 Email: ${answersArray.email}
     `;
-};
-
 const questions = [
   {
     type: "input",
@@ -102,11 +100,13 @@ const questions = [
     type: "input",
     name: "email",
     message: "Please enter your email address name:",
+    validate: emailValidator.validate,
   },
 ];
 
 inquirer.prompt(questions).then((response) => {
+  console.log(response);
   fs.writeFile("./output/readMe.md", ReadMeGenerator(response), (err) =>
-    err ? console.err(err) : console.log("Success!")
+    err ? console.error(err) : console.log("Success!")
   );
 });
